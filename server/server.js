@@ -10,23 +10,31 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 let reservations = [];
 
+app.get("/reservations", function(req, res){
+	res.json(reservations);
+});
+
 app.post('/', (req, res) => {
 	const twiml = new MessagingResponse();
 
 	let input = req.body.Body.split(" ");
 
-	let reservation = {
-		firstname: input[0],
-		lastname: input[1],
-		partysize: input[2],
-		time: input[3]
+	if (input.length !== 4) {
+		console.log("error: require more inputs");
+		twiml.message('error: require more inputs');
+	} else {
+		let reservation = {
+			firstname: input[0],
+			lastname: input[1],
+			partysize: input[2],
+			time: input[3]
+		}
+
+		twiml.message('success');
+
+		reservations.push(reservation);
+		console.log(reservations);
 	}
-
-	twiml.message('success');
-
-	reservations.push(reservation);
-	console.log(reservations);
-	
 
 	res.writeHead(200, {'Content-Type': 'text/xml'});
 	res.end(twiml.toString());

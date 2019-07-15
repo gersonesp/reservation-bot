@@ -35,6 +35,9 @@ class ReservationsList extends Component {
             lastname={reservation.lastname}
             partysize={reservation.partysize}
             time={reservation.time}
+            day={reservation.day}
+            month={reservation.month}
+            year={reservation.year}
           />
         ))}
       </div>

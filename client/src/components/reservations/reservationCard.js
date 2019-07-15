@@ -9,6 +9,9 @@ export default function ReservationsCard(props) {
         </p>
         <p>Party size: {props.partysize}</p>
         <p>@{props.time}</p>
+        <p>
+          Date: {props.day}/{props.month}/{props.year}
+        </p>
       </div>
     </div>
   );

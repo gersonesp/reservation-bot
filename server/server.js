@@ -40,7 +40,7 @@ app.post('/', (req, res) => {
 		console.log("error");
 		twiml.message('error');
 	} else {
-		let s = "" + input[6] + "-" + input[5] + "-" + input[4] + input[3] + ":00:00.000Z"
+		let s = input[6] + "-" + input[5] + "-" + input[4] + input[3] + ":00:00.000Z"
 		let reservation = {
 			firstname: input[0],
 			lastname: input[1], 
@@ -57,7 +57,7 @@ app.post('/', (req, res) => {
 		reservations.push(reservation);
 
 		console.log(reservations);
-		reservations.sort((a, b) => (a.isodate > b.isodate));
+		reservations.sort((a, b) => (a.isodate > b.isodate) ? 1 : -1);
 
 	}
 

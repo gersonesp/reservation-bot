@@ -36,10 +36,11 @@ app.post('/', (req, res) => {
 
 	let input = req.body.Body.split(" ");
 
-	if (input.length !== 7 && checktime(input[3]) && checkday(input[4]) && checkday(input[5]) && checkday(input[6])) {
+	if (input.length !== 7 && checktime(input[3]) && checkday(input[4]) && checkmonth(input[5]) && checkyear(input[6])) {
 		console.log("error");
 		twiml.message('error');
 	} else {
+		let s = "" + input[6] + "-" + input[5] + "-" + input[4] + input[3] + ":00:00.000Z"
 		let reservation = {
 			firstname: input[0],
 			lastname: input[1], 
@@ -47,7 +48,8 @@ app.post('/', (req, res) => {
 			time: input[3],
 			day: input[4],
 			month: input[5],
-			year: input[6]
+			year: input[6],
+			isodate: s
 		}
 
 		twiml.message('success');
@@ -55,6 +57,7 @@ app.post('/', (req, res) => {
 		reservations.push(reservation);
 
 		console.log(reservations);
+		reservations.sort((a, b) => (a.isodate > b.isodate));
 
 	}
 

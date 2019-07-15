@@ -1,22 +1,41 @@
 import React, { Component } from "react";
+import ReservationsCard from "./reservationCard";
 
 class ReservationsList extends Component {
-  state = {
-    reservations: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      reservations: []
+    };
+    this.fetchReservationList = this.fetchReservationList.bind(this);
+  }
 
   componentDidMount() {
-    fetch("/reservations")
+    this.fetchReservationList();
+  }
+
+  async fetchReservationList() {
+    await fetch("reservations")
       .then(res => res.json())
-      .then(reservations => this.setState({ reservations }));
+      .then(data =>
+        this.setState({
+          reservations: data
+        })
+      );
   }
 
   render() {
     return (
       <div className="App">
         <h1>Reservations</h1>
-        {this.state.reservations.map(reservation => (
-          <div key={reservation.id}>{reservation.name}</div>
+        {this.state.reservations.map((reservation, index) => (
+          <ReservationsCard
+            key={index}
+            firstname={reservation.firstname}
+            lastname={reservation.lastname}
+            partysize={reservation.partysize}
+            time={reservation.time}
+          />
         ))}
       </div>
     );

@@ -36,7 +36,7 @@ app.post('/', (req, res) => {
 
 	let input = req.body.Body.split(" ");
 
-	if (input.length !== 7 && checktime(input[3]) && checkday(input[4]) && checkmonth(input[5]) && checkyear(input[6])) {
+	if (input.length !== 8 && checktime(input[3]) && checkday(input[4]) && checkmonth(input[5]) && checkyear(input[6])) {
 		console.log("error");
 		twiml.message('error');
 	} else {

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "PORT=1337 nodemon ./server.js"
+    "start": "PORT=3001 nodemon ./server.js"
   },
   "dependencies": {
     "express": "~4.16.1",

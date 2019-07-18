@@ -5,6 +5,6 @@ deploy:
   provider: heroku
   api_key:
     secure: lbJrpAPCt7aibBt2eKeLZ8uN/3Xm9upoXA3qdAb5sZxxG+9DQPtgKxl0Kq3RrLUtC8LBIEIanZRDHhDC3Vnna8J2LzHjCbnSIvKnrPjn3jhH8XBvgJrnzPBmge0BWsycpus2T7e2BKaS3lt5n4ysF3LkjU/nMUKgqf+CrtrE1PecN3nddb22Xqab4Ld4PrP2xaCcpquFmzXQXTnRidfzasENGWYqL/AedDRY/VWNAwWpNkYXOsse0gZvRsOYhgLT4Bmw/KgziEs9sperzS+gJwh3Q+6plIvTPQOHuCrhNoB2Fh/wbbeOyeZHvmZXkLEisfYNP9DOlT/LtTw9UMT+SafPOwlI6gOqkJUGJIbob8/RccRVEzNQnOSXz806VbQXNTOZk7Kuq4BdK8IbFqCENqgOlhAWrPCi2PN/1hcwOOF5IlNRbnVz2RV4kA3ZZ5NbMIqUxUMXbQCukkP4Pth8i+s8S+6u8XDdDASbVALxBE/ViVUwgOiSt50D4yCBf1I5YETJfYUOjllevm+qyo1ZpVp0pUMOH9pA5GD9RIa44+MgvCVma5sM6RQ/QPw8Hg1EFRvu7ImZh3b8ztwNkPUnuAD5cdEraaDI4IoGWHegzeRzf6+LeDVD3c28KbO1EvOlLsvUyz5bqPwu59HSFaaW4TK0DAxlZCHLjBdoilSWRSs=
-  app: reservation-bot
+  app: shielded-plateau-51781
   on:
     repo: gersonesp/reservation-bot.git

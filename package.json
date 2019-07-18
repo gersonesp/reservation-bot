@@ -2,6 +2,9 @@
   "name": "server",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "10.10.0"
+  },
   "scripts": {
     "start": "PORT=3001 nodemon ./server.js"
   },

@@ -4,6 +4,8 @@ const MessagingResponse = require("twilio").twiml.MessagingResponse;
 const bodyParser = require("body-parser");
 const request = require("request");
 const { clientId, clientSecret } = require("./secrets");
+const database = require("./db.js");
+const Reservations = require("./db.js");
 
 const app = express();
 
@@ -34,7 +36,7 @@ app.get("/reservations", function(req, res) {
 
 let input;
 
-app.post("/", (req, res) => {
+app.post("/", async (req, res, next) => {
   const twiml = new MessagingResponse();
 
   if (req.body.response_url && req.body.response_url.includes("slack")) {
@@ -111,6 +113,16 @@ app.get("/oauth", function(req, res) {
   }
 });
 
-http.createServer(app).listen(1337, () => {
-  console.log("express server listening on port 1337");
+database.db.authenticate().then(() => {
+  console.log("connected to the database");
 });
+
+const init = async function() {
+  await database.db.sync();
+
+  http.createServer(app).listen(1337, () => {
+    console.log("express server listening on port 1337");
+  });
+};
+
+init();
